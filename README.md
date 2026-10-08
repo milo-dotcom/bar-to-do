@@ -1,8 +1,16 @@
-# To Do Desk
+# Bar To Do
+
+**Microsoft To Do, right in your menu bar.**
+
+![Bar To Do — menu bar companion illustration](assets/gallery-menu-bar.png)
+
+[Download the preview](https://github.com/milo-dotcom/bar-to-do/releases/tag/v1.2.0) · [MIT License](LICENSE) · [Report an issue](https://github.com/milo-dotcom/bar-to-do/issues)
+
+Stylized as **bar.to.do**; this is branding, not a website address. Previously called To Do Desk.
 
 Microsoft To Do in your Mac menu bar. Click the checkmark icon to capture a task, check something off, or switch lists without keeping a browser window open.
 
-To Do Desk is a small independent AppKit + WebKit app that displays [Microsoft's official To Do website](https://to-do.office.com/tasks/). It uses the website's normal Microsoft sign-in. No custom Microsoft app registration, API key, or separate task database is needed.
+Bar To Do is a small independent AppKit + WebKit app that displays [Microsoft's official To Do website](https://to-do.office.com/tasks/). It uses the website's normal Microsoft sign-in. No custom Microsoft app registration, API key, or separate task database is needed.
 
 ## Features
 
@@ -21,11 +29,11 @@ The downloadable build targets Apple silicon. The app has been checked on macOS 
 
 ## Install
 
-Download and unzip the Apple silicon release, then move **To Do Desk.app** to your Applications folder and open it. Click the checkmark in the menu bar and sign in to Microsoft.
+Download and unzip the Apple silicon release, then move **Bar To Do.app** to your Applications folder and open it. Click the checkmark in the menu bar and sign in to Microsoft.
 
-**The first release is ad-hoc signed and is not Apple-notarized.** A downloaded build may be blocked by Gatekeeper. Building from source is the supported alternative; this project does not ask you to disable macOS security protections.
+**This preview is ad-hoc signed and is not Apple-notarized.** A downloaded build may be blocked by Gatekeeper. Building from source is the supported alternative; this project does not ask you to disable macOS security protections.
 
-To launch it automatically, add To Do Desk in **System Settings → General → Login Items → Open at Login**. Installing the app does not change login items or replace Microsoft's native app.
+To launch it automatically, add Bar To Do in **System Settings → General → Login Items → Open at Login**. Installing the app does not change login items or replace Microsoft's native app.
 
 ## Build from source
 
@@ -35,7 +43,7 @@ Install Xcode or the Xcode Command Line Tools. No package manager or third-party
 ./build.sh
 ```
 
-The app is written to `dist/To Do Desk.app`. To create a ZIP with a SHA-256 checksum:
+The app is written to `dist/Bar To Do.app`. To create a ZIP with a SHA-256 checksum:
 
 ```sh
 ./package.sh
@@ -48,7 +56,7 @@ Optional build settings:
 ARCH=x86_64 ./build.sh
 
 # Use your own bundle identifier and Developer ID signing identity.
-BUNDLE_ID=com.example.tododesk \
+BUNDLE_ID=com.example.bartodo \
 SIGNING_IDENTITY='Developer ID Application: Your Name (TEAMID)' \
 ./package.sh
 ```
@@ -68,6 +76,10 @@ The panel is fixed at 440 points wide and up to 650 points high. The pin keeps i
 ## Validation
 
 The local menu bar version was checked for launch, popover layout, pin toggling, persisted sign-in across restart, and loading real task lists with add/completion controls. Existing tasks were not modified during testing. The public build is compiled and its code signature is verified; broad compatibility and end-to-end task mutation tests remain outstanding.
+
+## Upgrading from To Do Desk
+
+Quit the previous app before opening Bar To Do. The public bundle identifier and stored preference keys remain unchanged to preserve the web session and preferences. If you added the old app to Login Items, update that entry to point to Bar To Do. Keep only one version running.
 
 ## License and attribution
 

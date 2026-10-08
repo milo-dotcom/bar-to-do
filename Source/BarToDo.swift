@@ -21,7 +21,7 @@ final class BrowserWindow: NSWindowController, WKNavigationDelegate, WKUIDelegat
         webView = WKWebView(frame: .zero, configuration: configuration)
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: popup ? 600 : 440, height: popup ? 740 : 650),
                               styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
-        window.title = popup ? "Microsoft sign-in" : "To Do Desk"
+        window.title = popup ? "Microsoft sign-in" : "Bar To Do"
         window.minSize = NSSize(width: 360, height: 400)
         window.isReleasedWhenClosed = false
         super.init(window: window)
@@ -168,10 +168,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let appMenuItem = NSMenuItem()
         menu.addItem(appMenuItem)
         let appMenu = NSMenu()
-        appMenu.addItem(withTitle: "About To Do Desk", action: #selector(about), keyEquivalent: "")
+        appMenu.addItem(withTitle: "About Bar To Do", action: #selector(about), keyEquivalent: "")
         appMenu.addItem(.separator())
-        appMenu.addItem(withTitle: "Hide To Do Desk", action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
-        appMenu.addItem(withTitle: "Quit To Do Desk", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        appMenu.addItem(withTitle: "Hide Bar To Do", action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
+        appMenu.addItem(withTitle: "Quit Bar To Do", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         appMenuItem.submenu = appMenu
         let editItem = NSMenuItem(title: "Edit", action: nil, keyEquivalent: "")
         let edit = NSMenu(title: "Edit")
@@ -213,12 +213,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
         for (title, selector) in [("Open To Do", #selector(showPanel)),
                                   ("Open in Browser", #selector(openBrowser)),
-                                  ("About To Do Desk", #selector(about))] {
+                                  ("About Bar To Do", #selector(about))] {
             let item = statusMenu.addItem(withTitle: title, action: selector, keyEquivalent: "")
             item.target = self
         }
         statusMenu.addItem(.separator())
-        statusMenu.addItem(withTitle: "Quit To Do Desk", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        statusMenu.addItem(withTitle: "Quit Bar To Do", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         showPanel()
     }
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -248,7 +248,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func openBrowser() { NSWorkspace.shared.open(homeURL) }
     @objc private func about() {
         NSApp.orderFrontStandardAboutPanel(options: [
-            .applicationName: "To Do Desk", .applicationVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1.0",
+            .applicationName: "Bar To Do", .applicationVersion: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.2.0",
             .credits: NSAttributedString(string: "A menu bar panel for Microsoft’s official To Do website.\nIndependent local companion; not a Microsoft product.\nClick the checkmark in the menu bar to open your tasks.\nUse the pin button to keep the panel open while switching apps.")
         ])
     }

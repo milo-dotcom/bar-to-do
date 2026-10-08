@@ -1,6 +1,6 @@
 # Privacy
 
-To Do Desk is a local web wrapper for Microsoft's official To Do website.
+Bar To Do is a local web wrapper for Microsoft's official To Do website.
 
 - It loads `https://to-do.office.com/tasks/` using Apple's WebKit.
 - Microsoft and its sign-in providers receive the web requests needed to operate the site. Microsoft's privacy statement and your organization's policies govern those services.
